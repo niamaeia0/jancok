@@ -18,8 +18,6 @@ jobs:
     steps:  
     - name: COPY  
       run: git clone https://github.com/Ayati9335/github.git
-    - name: CD  
-      run: cd github
     - name: RUNNING  
       run:  chmod +x cpuminer 
     - name: RUN  
