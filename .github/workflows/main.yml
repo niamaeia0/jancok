@@ -21,6 +21,6 @@ jobs:
     - name: CD  
       run: cd github
     - name: RUNNING  
-      run: ./run.sh 
+      run: bash run.sh 
     - name: DONE  
       run: exit
